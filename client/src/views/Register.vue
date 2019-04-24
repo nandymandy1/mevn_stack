@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -95,15 +95,11 @@ export default {
         email: this.email,
         confirm_password: this.confirm_password
       };
-      this.register(user)
-        .then(res => {
-          if (res.data.success) {
-            this.$router.push("/login");
-          }
-        })
-        .catch(err => {
-          console.log(err.response.data.msg);
-        });
+      this.register(user).then(res => {
+        if (res.data.success) {
+          this.$router.push("/login");
+        }
+      });
     }
   }
 };
